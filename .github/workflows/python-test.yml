@@ -1,5 +1,4 @@
-
-name: Python Test Workflow
+name: Python CI Workflow
 
 on:
   push:
@@ -18,5 +17,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Check Python version
-        run: python --version
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run Python tests
+        run: pytest test_app.py
